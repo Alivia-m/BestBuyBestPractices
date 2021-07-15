@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BestBuyBestPractices
 {
-    public interface IDepartmentRepository
+    public interface IProductRepository
     {
-        IEnumerable<Department> GetAllDepartments();
+      IEnumerable<Products> GetAllProducts();
+      void CreateProduct(string name, double price, int categoryID);
     }
 }

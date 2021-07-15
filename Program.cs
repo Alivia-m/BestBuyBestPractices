@@ -19,6 +19,16 @@ namespace BestBuyBestPractices
             string connString = config.GetConnectionString("DefaultConnection");
             IDbConnection conn = new MySqlConnection(connString);
 
+            var repo = new DapperProductRepository(conn);
+            var products = repo.GetAllProducts();
+            repo.CreateProduct("TV", 400, 5);
+            
+            foreach(var product in products)
+            {
+                Console.WriteLine($"{product.ProductID} {product.Name}");
+            }
+
+            
 
         }
     }
